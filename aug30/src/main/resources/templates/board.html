@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" th:href="@{./css/board.css}">
+</head>
+<body>
+<div th:if="${session.mid != null}" th:text="|${session.mname}(${session.mid})님 ㅎㅇ요|"></div>
+	<h1>보드</h1>
+	<table>
+		<tr>
+		<td>번호</td>
+		<td>제목</td>
+		<td>글쓴이</td>
+		<td>날짜</td>
+		<td>좋아요</td>
+		</tr>
+		<tr th:each="row : ${list}">
+			<td th:text="${row.bno}">번호</td>
+			<td th:onclick="|location.href='@{./detail(bno=${row.bno})}'|">[[${row.btitle}]]<small>[[${row.commentcount}]]</small></td>
+			<td th:text="${row.m_name}">글쓴이</td>
+			<td th:text="${row.bdate}">날짜</td>
+			<td th:text="${row.blike}">좋아요</td>
+		</tr>
+	</table>
+</body>
+</html>

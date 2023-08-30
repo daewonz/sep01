@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<th:block th:insert="~{/menu.html :: menu}"></th:block>
+	<h1>index</h1>
+	<div th:if="${session.mid != null}" th:text="${session.mid}님 환영합니다."></div>
+	${session.mid}
+		<a href="/board">보드로</a>
+	<a href="/login">로그인으로</a>
+</body>
+</html>

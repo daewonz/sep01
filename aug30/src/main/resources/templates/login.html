@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<th:block th:insert="~{/menu.html :: menu}"></th:block>
+	<h1>ㅎㅇ요</h1>
+	<form action="./login" method="post">
+	<input type="text" id="id" name="m_id" placeholder="아이디를 입력해주세요">
+	<input type="password" id="pw" name="m_pw" placeholder="비밀번호를 입력해주세요">
+	<button type="submit">로그인하기</button>
+	</form>
+</body>
+</html>

@@ -13,9 +13,9 @@ public class BoardService {
 @Autowired
 BoardDAO boardDAO;
 
-public List<BoardDTO> list() {
+public List<BoardDTO> list(int pageNo) {
 	// TODO Auto-generated method stub
-	return boardDAO.list();
+	return boardDAO.list(pageNo);
 }
 
 public BoardDTO detail(int bno) {

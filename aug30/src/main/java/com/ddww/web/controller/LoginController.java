@@ -30,7 +30,7 @@ private LoginService loginService;
 		System.out.println(dto.getM_pw());
 		dto = loginService.login(dto);
 		System.out.println(dto);
-		if(dto.getM_name() != null) {
+		if(dto.getM_name() != null || dto.getCount() == 1) {
 			session.setAttribute("mid", dto.getM_id());
 			session.setAttribute("mname", dto.getM_name());
 			

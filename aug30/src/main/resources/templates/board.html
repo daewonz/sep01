@@ -7,6 +7,7 @@
 </head>
 <body>
 <div th:if="${session.mid != null}" th:text="|${session.mname}(${session.mid})님 ㅎㅇ요|"></div>
+<th:block th:insert="~{/menu.html :: menu}"></th:block>
 	<h1>보드</h1>
 	<table>
 		<tr>
@@ -24,5 +25,22 @@
 			<td th:text="${row.blike}">좋아요</td>
 		</tr>
 	</table>
+	
+	
+	<div class="paging">
+		<th:block th:each="i : ${#numbers.sequence(1, 10)}">
+			<button th:onclick="|location.href='.@{./board(pageNo=${i})}'|">[[${i}]]</button>
+		</th:block>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 </body>
 </html>

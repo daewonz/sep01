@@ -17,10 +17,15 @@ public class BoardController {
 @Autowired
 private BoardService boardService;
 
+
+//pageNo
 	@GetMapping("/board")
-	public String board(Model model) {
-		List<BoardDTO> list = boardService.list();
-		System.out.println(list);
+	public String board(@RequestParam(name = "pageNo", required = false, defaultValue = "1") int pageNo, Model model) {
+		
+		//pageNo === (pageNo -1) * 10
+		
+		List<BoardDTO> list = boardService.list((pageNo -1) * 10);
+		System.out.println(list);	
 		model.addAttribute("list", list);
 		return "board";
 	}

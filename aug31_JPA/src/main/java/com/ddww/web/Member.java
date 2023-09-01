@@ -1,32 +1,37 @@
 package com.ddww.web;
 
+import java.time.LocalDateTime;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
 @Entity
+@Table(name = "jmember")
+@NoArgsConstructor
 @Data
-@Table(name = "jmembers")
 public class Member {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int mno;
 	
 	@Column(length = 10)
-	private String m_name;
+	private String mname;
 	
-	@Column(name = "m_id", unique = true)
-	private String m_id;
+	@Column(name="mid", unique = true)
+	private String mid;
 	
-	private String m_pw;
+	@Column(nullable = false, name="mpw")
+	private String mpw;
 	
 	@Column(columnDefinition = "TIMESTAMP")
-	private String m_joindate;
-
+	private LocalDateTime mjoindate;
+	
 	
 }
